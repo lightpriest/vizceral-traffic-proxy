@@ -1,0 +1,45 @@
+{
+  "renderer": "global",
+  "name": "edge",
+  "nodes": [
+    {
+      "name": "INTERNET"
+    },
+    {
+      "renderer": "region",
+      "name": "us-east-1",
+      "updated": null,
+      "maxVolume": "increase(http_request_counter{host='web01'}[10m]) / 600",
+      "nodes": [
+        {
+          "name": "INTERNET"
+        },
+        {
+          "name": "web01"
+        }
+      ],
+      "connections": [
+        {
+          "source": "INTERNET",
+          "target": "web01",
+          "metrics": {
+            "normal": "rate(http_request_counter{host='web01',status_code=~'2..'}[1m])",
+            "warning": "rate(http_request_counter{host='web01',status_code=~'4..'}[1m])",
+            "danger": "rate(http_request_counter{host='web01',status_code=~'5..'}[1m])"
+          }
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "source": "INTERNET",
+      "target": "us-east-1",
+      "metrics": {
+      "normal": "rate(http_request_counter{region='us-east-1',host='web01',status_code=~'2..'}[1m])",
+      "warning": "rate(http_request_counter{region='us-east-1',host='web01',status_code=~'4..'}[1m])",
+      "danger": "rate(http_request_counter{region='us-east-1',host='web01',status_code=~'5..'}[1m])"
+      }
+    }
+  ]
+}
