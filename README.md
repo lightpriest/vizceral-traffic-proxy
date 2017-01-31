@@ -1,7 +1,7 @@
 vizceral-traffic-proxy
 ======================
 
-A web server that acts as a proxy between a vizceral clients and the
+A web server that acts as a proxy between vizceral clients and the
 metrics server. It currently only supports prometheus, but adding new backends
 should be easy enough.
 
