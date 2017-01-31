@@ -94,3 +94,10 @@ See metrics object in the following example:
 
 By default, it will expose the latest traffic tree on port 3000.
 To change that, set the environment variable `PORT`.
+
+TODO
+----
+
+- [ ] Handle errors in configuration file
+- [ ] Write tests
+- [ ] Graphite backend could be easy enough
