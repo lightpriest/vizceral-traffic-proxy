@@ -100,4 +100,4 @@ TODO
 
 - [ ] Handle errors in configuration file
 - [ ] Write tests
-- [ ] Graphite backend could be easy enough
+- [ ] Graphite backend should be easy to write
